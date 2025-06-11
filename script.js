@@ -85,13 +85,13 @@ window.onload = function() {
         let lastIndex = -1;
         shuffleTimer = setInterval(() => {
             let randomIndex;
-            // 前回と同じ画像が連続で表示されないようにする (重み考慮)
+            // シャッフル中は重みを考慮せず、均等にランダム選択
             // images.length > 1 の条件は executeShuffleSequence で担保済み
             do {
-                randomIndex = getWeightedRandomIndex(images);
-            } while (randomIndex === lastIndex); // images.length > 1 は常に真
+                randomIndex = Math.floor(Math.random() * images.length);
+            } while (randomIndex === lastIndex);
 
-            randomImage.src = images[randomIndex].src; // .src を追加
+            randomImage.src = images[randomIndex].src;
             lastIndex = randomIndex;
         }, shuffleInterval);
     }
@@ -99,8 +99,9 @@ window.onload = function() {
     function stopShuffle() {
         clearInterval(shuffleTimer);
 
+        // 最終的な画像は重みを考慮して決定
         const finalImageIndex = getWeightedRandomIndex(images);
-        randomImage.src = images[finalImageIndex].src; // .src を追加
+        randomImage.src = images[finalImageIndex].src;
 
         document.body.classList.add('image-decided-effect');
 
