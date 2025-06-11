@@ -1,0 +1,110 @@
+// ページが読み込まれたら実行
+window.onload = function() {
+    const randomImage = document.getElementById('random-image');
+    const actionButton = document.getElementById('action-button');
+
+    // 🖼️ 画像のパスと重みを設定
+    const images = [
+        { src: 'images/pon.png',    weight: 5 },
+        { src: 'images/kinako.png', weight: 5 },
+        { src: 'images/misa.png',   weight: 5 },
+        { src: 'images/naruse.png', weight: 5 },
+        { src: 'images/hiyoko.png', weight: 50 },
+        { src: 'images/ripa.png',   weight: 5 },
+        { src: 'images/kou.png',    weight: 10 },
+        { src: 'images/nahe.png',   weight: 10 },
+        { src: 'images/seseri.png', weight: 3 },
+        { src: 'images/bravo.png',  weight: 5 },
+        { src: 'images/poni.png',   weight: 3 },
+    ];
+
+    // ✨ パッケージ画像のパスを指定
+    const packageImage = 'images/package.png';
+
+    // --- 設定項目 ---
+    const shuffleDuration = 3000; // シャッフルアニメーションの時間 (3秒)
+    const shuffleInterval = 100;  // 画像が切り替わる速さ (0.1秒)
+    // ----------------
+
+    let shuffleTimer;
+
+    // ===== 初期表示: パッケージ画像とスタートボタン =====
+    randomImage.src = packageImage;
+    actionButton.textContent = 'スタート';
+    actionButton.style.display = 'block';
+    actionButton.disabled = false;
+
+    // 重みを考慮してランダムな画像のインデックスを取得するヘルパー関数
+    function getWeightedRandomIndex(weightedImages) {
+        const totalWeight = weightedImages.reduce((sum, img) => sum + (img.weight || 0), 0);
+        if (totalWeight <= 0) return Math.floor(Math.random() * weightedImages.length); // 重みが無効な場合は通常のランダム
+
+        let randomNumber = Math.random() * totalWeight;
+        for (let i = 0; i < weightedImages.length; i++) {
+            if (randomNumber < (weightedImages[i].weight || 0)) {
+                return i;
+            }
+            randomNumber -= (weightedImages[i].weight || 0);
+        }
+        // フォールバック (通常は到達しないが、浮動小数点誤差などを考慮)
+        return weightedImages.length - 1;
+    }
+
+    // シャッフルと結果表示のコア処理
+    function executeShuffleSequence() {
+        document.body.classList.remove('image-decided-effect');
+
+        if (images.length === 0) { // 画像が0枚の場合
+            actionButton.textContent = '画像なし';
+            actionButton.disabled = true;
+            return;
+        }
+
+        if (images.length === 1) { // 画像が1枚だけの場合
+            randomImage.src = images[0].src; // .src を追加
+            actionButton.textContent = 'もう1度引く';
+            actionButton.disabled = false; // 1枚でも再度引けるようにする（結果は同じ）
+            document.body.classList.add('image-decided-effect');
+            return;
+        }
+
+        actionButton.disabled = true;
+        actionButton.textContent = 'シャッフル中...';
+
+        startShuffle();
+        setTimeout(stopShuffle, shuffleDuration);
+    }
+
+    actionButton.addEventListener('click', () => {
+        if (!actionButton.disabled) {
+            executeShuffleSequence();
+        }
+    });
+
+    function startShuffle() {
+        let lastIndex = -1;
+        shuffleTimer = setInterval(() => {
+            let randomIndex;
+            // 前回と同じ画像が連続で表示されないようにする (重み考慮)
+            // images.length > 1 の条件は executeShuffleSequence で担保済み
+            do {
+                randomIndex = getWeightedRandomIndex(images);
+            } while (randomIndex === lastIndex); // images.length > 1 は常に真
+
+            randomImage.src = images[randomIndex].src; // .src を追加
+            lastIndex = randomIndex;
+        }, shuffleInterval);
+    }
+
+    function stopShuffle() {
+        clearInterval(shuffleTimer);
+
+        const finalImageIndex = getWeightedRandomIndex(images);
+        randomImage.src = images[finalImageIndex].src; // .src を追加
+
+        document.body.classList.add('image-decided-effect');
+
+        actionButton.textContent = 'もう1度引く';
+        actionButton.disabled = false;
+    }
+};
