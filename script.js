@@ -16,7 +16,7 @@ window.onload = function() {
         { src: 'images/seseri.png',    weight: 5  },
         { src: 'images/bravo.png',     weight: 5  },
         { src: 'images/poni.png',      weight: 5  },
-        { src: 'images/osta.png',      weight: 50 },
+        { src: 'images/osta.png',      weight: 5  },
         { src: 'images/bravo_ban.png', weight: 1  },
     ];
 
