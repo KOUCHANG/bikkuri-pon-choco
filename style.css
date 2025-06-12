@@ -1,6 +1,6 @@
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f0f2f5; /* 少し明るい背景色に変更 */
     color: #333;
     margin: 0;
     padding: 10px;
@@ -15,103 +15,113 @@ body {
 }
 
 h1 {
-    color: #d9534f;
+    color: #e74c3c; /* 少し鮮やかな赤に変更 */
     margin-top: 0;
-    margin-bottom: 5px; /* 変更なし */
-    font-size: 2em; /* 変更なし */
+    margin-bottom: 8px; /* 少し調整 */
+    font-size: 2.1em; /* 少し大きく */
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* 軽いテキストシャドウ */
 }
 
 p { /* 「今日のシールは・・・？」のスタイル */
-    font-size: 1em; /* 変更なし */
-    line-height: 1.4; /* 変更なし */
+    font-size: 1.15em; /* 少し大きく */
+    color: #2c3e50; /* 濃いめの青灰色 */
+    font-weight: 600; /* 少し太く */
+    line-height: 1.5;
     margin-top: 0;
-    margin-bottom: 5px; /* 下マージンを少し減らす */
+    margin-bottom: 4px; /* 下マージンを調整 */
+    letter-spacing: 0.05em; /* 文字間隔を少し広げる */
 }
 
-#image-count-display { /* 新しい要素のスタイル */
-    font-size: 0.9em;
-    color: #555;
+#image-count-display { /* 「（全x種類）」のスタイル */
+    font-size: 0.95em; /* 少し調整 */
+    color: #7f8c8d;   /* 落ち着いたグレー */
+    font-style: italic; /* イタリック体 */
     margin-top: 0;
-    margin-bottom: 10px; /* ボタンとの間隔 */
+    margin-bottom: 12px; /* ボタンとの間隔を少し広げる */
 }
 
 #action-button {
     display: block;
-    margin: 0 auto 10px auto; /* 下マージン変更なし */
-    padding: 10px 20px;
-    font-size: 1.1em;
+    margin: 0 auto 12px auto; /* 下マージンを少し調整 */
+    padding: 12px 28px; /* パディングを少し大きく */
+    font-size: 1.15em;
     font-weight: bold;
     color: white;
-    background-color: #5cb85c;
+    background-color: #3498db; /* 明るい青に変更 */
     border: none;
-    border-radius: 8px;
+    border-radius: 25px; /* より丸みのある角 */
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    min-width: 180px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: background-color 0.2s ease-out, transform 0.1s ease;
+    min-width: 190px;
+    box-shadow: 0 3px 7px rgba(0,0,0,0.15);
 }
 
 #action-button:hover {
-    background-color: #4cae4c;
+    background-color: #2980b9; /* ホバー時の色を少し濃く */
+    transform: translateY(-1px); /* ホバー時に少し浮き上がる */
 }
 
 #action-button:disabled {
-    background-color: #cccccc;
-    color: #888888;
+    background-color: #bdc3c7; /* 無効時の色を調整 */
+    color: #7f8c8d;
     cursor: not-allowed;
     box-shadow: none;
+    transform: translateY(0);
 }
 
 #image-container {
     margin-top: 0;
     margin-bottom: 0;
-    border: 3px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    padding: 8px;
-    max-width: 80%;
+    border: 4px solid #ecf0f1; /* 枠線の色を調整 */
+    border-radius: 12px; /* 角丸を少し大きく */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    padding: 10px; /* パディングを少し大きく */
+    max-width: 85%; /* 最大幅を少し調整 */
     display: inline-block;
 }
 
 #random-image {
     max-width: 100%;
     display: block;
-    border-radius: 5px;
-    /* 新しいテキスト要素の高さを考慮して調整 (例: 20px程度減らす) */
-    max-height: calc(100vh - 240px); /* XXXpxの値を調整 */
+    border-radius: 8px; /* 画像の角丸も調整 */
+    /* テキスト要素のスタイル変更とマージン変更を考慮して調整 */
+    max-height: calc(100vh - 260px); /* XXXpxの値を調整 (PC用) */
     object-fit: contain;
 }
 
 @media (max-width: 600px) {
     h1 {
-        font-size: 1.8em;
+        font-size: 1.9em;
+        margin-bottom: 6px;
     }
-    p { /* 「今日のシールは・・・？」のスタイル */
+    p {
+        font-size: 1.05em;
+        margin-bottom: 3px;
+    }
+    #image-count-display {
         font-size: 0.9em;
-        margin-bottom: 3px; /* 下マージンを少し減らす */
-    }
-    #image-count-display { /* 新しい要素のスタイル (スマホ) */
-        font-size: 0.8em;
-        margin-bottom: 8px;
+        margin-bottom: 10px;
     }
     #action-button {
-        padding: 8px 15px;
-        font-size: 1em;
-        min-width: 150px;
-        margin-bottom: 8px; /* 下マージンを少し減らす */
+        padding: 10px 22px;
+        font-size: 1.05em;
+        min-width: 160px;
+        margin-bottom: 10px;
     }
     #image-container {
-        padding: 5px;
+        padding: 8px;
+        border-width: 3px;
     }
     #random-image {
-        /* 新しいテキスト要素の高さを考慮して調整 (例: 15px程度減らす) */
-        max-height: calc(100vh - 215px); /* XXXpxの値を調整 */
+        /* スマホ向けに再調整 */
+        max-height: calc(100vh - 230px); /* XXXpxの値を調整 (スマホ用) */
     }
 }
 
 /* 画像決定時の背景エフェクト用クラス */
 body.image-decided-effect {
-    background-image: radial-gradient(circle, #FFFACD, #FFC0CB);
+    background-image: radial-gradient(circle, #fff5e6, #ffe6f0); /* 淡いオレンジ系と淡いピンク系に変更 */
     transition: background-image 0.5s ease-in-out;
 }

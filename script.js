@@ -41,7 +41,7 @@ window.onload = function() {
 
     // 画像の種類数を表示
     if (imageCountDisplay) { // 要素が存在する場合のみ処理
-        imageCountDisplay.textContent = `全${images.length}種類`;
+        imageCountDisplay.textContent = `（全${images.length}種類）`; // 全角丸括弧で囲む
     }
 
     // 重みを考慮してランダムな画像のインデックスを取得するヘルパー関数
