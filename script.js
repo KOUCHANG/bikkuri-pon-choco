@@ -2,6 +2,7 @@
 window.onload = function() {
     const randomImage = document.getElementById('random-image');
     const actionButton = document.getElementById('action-button');
+    const imageCountDisplay = document.getElementById('image-count-display'); // ← 追加
 
     // 🖼️ 画像のパスと重みを設定
     const images = [
@@ -32,11 +33,16 @@ window.onload = function() {
 
     let shuffleTimer;
 
-    // ===== 初期表示: パッケージ画像とスタートボタン =====
+    // ===== 初期表示: パッケージ画像とスタートボタン、種類数 =====
     randomImage.src = packageImage;
     actionButton.textContent = 'スタート';
     actionButton.style.display = 'block';
     actionButton.disabled = false;
+
+    // 画像の種類数を表示
+    if (imageCountDisplay) { // 要素が存在する場合のみ処理
+        imageCountDisplay.textContent = `全${images.length}種類`;
+    }
 
     // 重みを考慮してランダムな画像のインデックスを取得するヘルパー関数
     function getWeightedRandomIndex(weightedImages) {
