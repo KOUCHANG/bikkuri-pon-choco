@@ -3,54 +3,56 @@ body {
     background-color: #f4f4f4;
     color: #333;
     margin: 0;
-    padding: 10px; /* 上下のパディングを少し減らす */
+    padding: 10px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* コンテンツを垂直方向の中央に配置 */
-    height: 100vh; /* bodyの高さをビューポートの高さに固定 */
-    overflow: hidden; /* スクロールバーを強制的に非表示 */
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
     box-sizing: border-box;
 }
 
 h1 {
     color: #d9534f;
-    margin-top: 0; /* 上マージンを調整 */
-    margin-bottom: 5px; /* 下マージンを減らす */
-    font-size: 2em; /* フォントサイズを少し小さく */
+    margin-top: 0;
+    margin-bottom: 5px; /* 変更なし */
+    font-size: 2em; /* 変更なし */
 }
 
-p {
-    font-size: 1em; /* フォントサイズを少し小さく */
-    line-height: 1.4;
+p { /* 「今日のシールは・・・？」のスタイル */
+    font-size: 1em; /* 変更なし */
+    line-height: 1.4; /* 変更なし */
     margin-top: 0;
-    margin-bottom: 10px; /* 下マージンを減らす */
+    margin-bottom: 5px; /* 下マージンを少し減らす */
+}
+
+#image-count-display { /* 新しい要素のスタイル */
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 0;
+    margin-bottom: 10px; /* ボタンとの間隔 */
 }
 
 #action-button {
-    /* position: absolute; スタイルをリセット */
-    /* top: 50%; */
-    /* left: 50%; */
-    /* transform: translate(-50%, -50%); */
-    display: block; /* ブロック要素として配置 */
-    margin: 0 auto 10px auto; /* 上0, 左右自動(中央), 下10pxのマージン */
-    padding: 10px 20px; /* パディングを調整 */
+    display: block;
+    margin: 0 auto 10px auto; /* 下マージン変更なし */
+    padding: 10px 20px;
     font-size: 1.1em;
     font-weight: bold;
     color: white;
-    background-color: #5cb85c; /* 通常のボタンスタイルに戻す例 */
+    background-color: #5cb85c;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    min-width: 180px; /* ボタンの最小幅 */
+    min-width: 180px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 #action-button:hover {
     background-color: #4cae4c;
-    /* transform: translate(-50%, -50%) scale(1.05); transformを削除 */
 }
 
 #action-button:disabled {
@@ -61,15 +63,14 @@ p {
 }
 
 #image-container {
-    /* position: relative; 不要であれば削除 */
-    margin-top: 0; /* 上マージンを削除または調整 */
-    margin-bottom: 0; /* 下マージンを削除または調整 */
-    border: 3px solid #ddd; /* 枠線を少し細く */
+    margin-top: 0;
+    margin-bottom: 0;
+    border: 3px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     background-color: #fff;
-    padding: 8px; /* パディングを少し減らす */
-    max-width: 80%; /* 最大幅を少し調整 */
+    padding: 8px;
+    max-width: 80%;
     display: inline-block;
 }
 
@@ -77,36 +78,40 @@ p {
     max-width: 100%;
     display: block;
     border-radius: 5px;
-    /* 画像の最大の高さをビューポートの高さに基づいて制限 */
-    /* h1, p, button, image-containerのpaddingやborderを考慮して調整 */
-    max-height: calc(100vh - 220px); /* 例: 全体の高さから他の要素の高さを引いた値 (要調整) */
-    object-fit: contain; /* アスペクト比を保ちつつコンテナに収める */
+    /* 新しいテキスト要素の高さを考慮して調整 (例: 20px程度減らす) */
+    max-height: calc(100vh - 240px); /* XXXpxの値を調整 */
+    object-fit: contain;
 }
 
-/* スマートフォン向けの調整は、上記の調整で多くのケースをカバーできるか確認 */
 @media (max-width: 600px) {
     h1 {
         font-size: 1.8em;
     }
-    p {
+    p { /* 「今日のシールは・・・？」のスタイル */
         font-size: 0.9em;
+        margin-bottom: 3px; /* 下マージンを少し減らす */
+    }
+    #image-count-display { /* 新しい要素のスタイル (スマホ) */
+        font-size: 0.8em;
+        margin-bottom: 8px;
     }
     #action-button {
         padding: 8px 15px;
         font-size: 1em;
         min-width: 150px;
+        margin-bottom: 8px; /* 下マージンを少し減らす */
     }
     #image-container {
         padding: 5px;
     }
     #random-image {
-        max-height: calc(100vh - 200px); /* スマホ向けに再調整 (要調整) */
+        /* 新しいテキスト要素の高さを考慮して調整 (例: 15px程度減らす) */
+        max-height: calc(100vh - 215px); /* XXXpxの値を調整 */
     }
 }
 
 /* 画像決定時の背景エフェクト用クラス */
 body.image-decided-effect {
-    /* background-color: #ffd700; */ /* ← 単色指定をコメントアウトまたは削除 */
-    background-image: radial-gradient(circle, #FFFACD, #FFC0CB); /* 淡い黄色(LemonChiffon)から淡いピンク(Pink)への放射状グラデーション */
-    transition: background-image 0.5s ease-in-out; /* グラデーションの変化を滑らかに */
+    background-image: radial-gradient(circle, #FFFACD, #FFC0CB);
+    transition: background-image 0.5s ease-in-out;
 }
