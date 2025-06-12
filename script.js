@@ -9,7 +9,7 @@ window.onload = function() {
         { src: 'images/pon.png',               weight: 18 },
         { src: 'images/kinako.png',            weight: 18 },
         { src: 'images/misa.png',              weight: 18 },
-        { src: 'images/naruse.png',            weight: 18 },
+        { src: 'images/naruse.png',            weight: 12 },
 
         { src: 'images/daibutsu_pon.png',      weight: 9  },
 
@@ -22,7 +22,9 @@ window.onload = function() {
 
         { src: 'images/ripa.png',              weight: 9  },
         { src: 'images/osta.png',              weight: 9  },
-        { src: 'images/koakuma_naruse.png',    weight: 9  },
+        { src: 'images/totoro.png',            weight: 9  },
+
+        { src: 'images/koakuma_naruse.png',    weight: 4  },
 
         { src: 'images/bravo.png',             weight: 8  },
         { src: 'images/bravo_ban.png',         weight: 1  },
