@@ -10,15 +10,24 @@ window.onload = function() {
         { src: 'images/kinako.png',            weight: 18 },
         { src: 'images/misa.png',              weight: 18 },
         { src: 'images/naruse.png',            weight: 18 },
+
+        { src: 'images/daibutsu_pon.png',      weight: 9  },
+
         { src: 'images/hiyoko.png',            weight: 95 },
-        { src: 'images/ripa.png',              weight: 9  },
+
         { src: 'images/kou.png',               weight: 36 },
         { src: 'images/nahe.png',              weight: 36 },
+
         { src: 'images/poni.png',              weight: 9  },
+
+        { src: 'images/ripa.png',              weight: 9  },
         { src: 'images/osta.png',              weight: 9  },
+        { src: 'images/koakuma_naruse.png',    weight: 9  },
+
         { src: 'images/bravo.png',             weight: 8  },
         { src: 'images/bravo_ban.png',         weight: 1  },
-        { src: 'images/seseri_normal.png',            weight: 5  },
+
+        { src: 'images/seseri_normal.png',     weight: 5  },
         { src: 'images/seseri_rare.png',       weight: 3  },
         { src: 'images/seseri_ultra_rare.png', weight: 1  },
     ];
