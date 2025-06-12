@@ -10,12 +10,12 @@ window.onload = function() {
         { src: 'images/misa.png',   weight: 10 },
         { src: 'images/naruse.png', weight: 10 },
         { src: 'images/hiyoko.png', weight: 50 },
-        { src: 'images/ripa.png',   weight: 5 },
+        { src: 'images/ripa.png',   weight: 5  },
         { src: 'images/kou.png',    weight: 20 },
         { src: 'images/nahe.png',   weight: 20 },
-        { src: 'images/seseri.png', weight: 5 },
-        { src: 'images/bravo.png',  weight: 5 },
-        { src: 'images/poni.png',   weight: 5 },
+        { src: 'images/seseri.png', weight: 5  },
+        { src: 'images/bravo.png',  weight: 5  },
+        { src: 'images/poni.png',   weight: 5  },
     ];
 
     // ✨ パッケージ画像のパスを指定
