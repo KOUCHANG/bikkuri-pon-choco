@@ -17,7 +17,7 @@ window.onload = function() {
         { src: 'images/osta.png',              weight: 9  },
         { src: 'images/bravo.png',             weight: 8  },
         { src: 'images/bravo_ban.png',         weight: 1  },
-        { src: 'images/seseri.png',            weight: 5  },
+        { src: 'images/seseri_normal.png',            weight: 5  },
         { src: 'images/seseri_rare.png',       weight: 3  },
         { src: 'images/seseri_ultra_rare.png', weight: 1  },
     ];
