@@ -5,19 +5,21 @@ window.onload = function() {
 
     // 🖼️ 画像のパスと重みを設定
     const images = [
-        { src: 'images/pon.png',       weight: 10 },
-        { src: 'images/kinako.png',    weight: 10 },
-        { src: 'images/misa.png',      weight: 10 },
-        { src: 'images/naruse.png',    weight: 10 },
-        { src: 'images/hiyoko.png',    weight: 50 },
-        { src: 'images/ripa.png',      weight: 5  },
-        { src: 'images/kou.png',       weight: 20 },
-        { src: 'images/nahe.png',      weight: 20 },
-        { src: 'images/seseri.png',    weight: 5  },
-        { src: 'images/bravo.png',     weight: 5  },
-        { src: 'images/poni.png',      weight: 5  },
-        { src: 'images/osta.png',      weight: 5  },
-        { src: 'images/bravo_ban.png', weight: 1  },
+        { src: 'images/pon.png',               weight: 18 },
+        { src: 'images/kinako.png',            weight: 18 },
+        { src: 'images/misa.png',              weight: 18 },
+        { src: 'images/naruse.png',            weight: 18 },
+        { src: 'images/hiyoko.png',            weight: 95 },
+        { src: 'images/ripa.png',              weight: 9  },
+        { src: 'images/kou.png',               weight: 36 },
+        { src: 'images/nahe.png',              weight: 36 },
+        { src: 'images/poni.png',              weight: 9  },
+        { src: 'images/osta.png',              weight: 9  },
+        { src: 'images/bravo.png',             weight: 8  },
+        { src: 'images/bravo_ban.png',         weight: 1  },
+        { src: 'images/seseri.png',            weight: 5  },
+        { src: 'images/seseri_rare.png',       weight: 3  },
+        { src: 'images/seseri_ultra_rare.png', weight: 1  },
     ];
 
     // ✨ パッケージ画像のパスを指定
