@@ -19,7 +19,9 @@ window.onload = function() {
 
         { src: 'images/kou.png',               weight: 36  },
         { src: 'images/nahe.png',              weight: 36  },
-        { src: 'images/hasecchi.png',          weight: 36  },
+
+        { src: 'images/hasecchi.png',          weight: 32  },
+        { src: 'images/hasecchi_rare.png',     weight: 4   },
 
         { src: 'images/poni.png',              weight: 9   },
         { src: 'images/osta.png',              weight: 9   },
