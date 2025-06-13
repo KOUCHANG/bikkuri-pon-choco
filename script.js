@@ -32,6 +32,7 @@ window.onload = function() {
         { src: 'images/seseri_normal.png',     weight: 5  },
         { src: 'images/seseri_rare.png',       weight: 3  },
         { src: 'images/seseri_ultra_rare.png', weight: 1  },
+        { src: 'images/seseri_birthday.png',   weight: 1  },
     ];
 
     // ✨ パッケージ画像のパスを指定
