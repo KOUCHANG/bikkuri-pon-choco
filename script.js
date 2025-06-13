@@ -6,30 +6,30 @@ window.onload = function() {
 
     // 🖼️ 画像のパスと重みを設定
     const images = [
-        { src: 'images/pon.png',               weight: 18  },
+        { src: 'images/pon.png',               weight: 12  },
         { src: 'images/kinako.png',            weight: 18  },
         { src: 'images/misa.png',              weight: 18  },
         { src: 'images/naruse.png',            weight: 12  },
 
-        { src: 'images/koakuma_naruse.png',    weight: 4   },
+        { src: 'images/naruse_koakuma.png',    weight: 6   },
 
-        { src: 'images/daibutsu_pon.png',      weight: 9   },
+        { src: 'images/pon_daibutsu.png',      weight: 6   },
 
-        { src: 'images/hiyoko.png',            weight: 110 },
+        { src: 'images/hiyoko.png',            weight: 72 },
 
-        { src: 'images/kou.png',               weight: 36  },
-        { src: 'images/nahe.png',              weight: 36  },
+        { src: 'images/kou.png',               weight: 27  },
+        { src: 'images/nahe.png',              weight: 27  },
 
-        { src: 'images/hasecchi.png',          weight: 32  },
-        { src: 'images/hasecchi_rare.png',     weight: 4   },
+        { src: 'images/hasecchi.png',          weight: 24  },
+        { src: 'images/hasecchi_rare.png',     weight: 3   },
 
         { src: 'images/poni.png',              weight: 9   },
         { src: 'images/osta.png',              weight: 9   },
         { src: 'images/totoro.png',            weight: 9   },
         { src: 'images/tibiarichan.png',       weight: 9   },
 
-        { src: 'images/ripa.png',              weight: 4   },
-        { src: 'images/ripa_uchujin.png',      weight: 5   },
+        { src: 'images/ripa.png',              weight: 5   },
+        { src: 'images/ripa_uchujin.png',      weight: 4   },
 
         { src: 'images/bravo.png',             weight: 8   },
         { src: 'images/bravo_ban.png',         weight: 1   },
