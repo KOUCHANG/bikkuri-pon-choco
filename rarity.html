@@ -11,8 +11,8 @@
     <div class="container">
         <h1>シールの出現率一覧</h1>
         <p><a href="index.html" class="back-link">&laquo; ビックリポンチョコに戻る</a></p>
-        <div id="rarity-list">
-            <!-- ここにJavaScriptでリストが生成されます -->
+        <div id="rarity-table-container">
+            <!-- ここにJavaScriptでテーブルが生成されます -->
         </div>
     </div>
     <script src="image-data.js"></script>
@@ -21,58 +21,61 @@
         const imagesData = allImagesData;
 
         document.addEventListener('DOMContentLoaded', function() {
-            const rarityListElement = document.getElementById('rarity-list');
-            if (!rarityListElement) return;
+            const rarityTableContainer = document.getElementById('rarity-table-container');
+            if (!rarityTableContainer) return;
 
-            // imagesDataをソートする
-            // 1. weight の降順 (高いものが先頭)
-            // 2. weight が同じ場合は、元の配列の順序を維持する (安定ソートの挙動に依存)
             const sortedImagesData = [...imagesData].sort((a, b) => {
                 const weightA = a.weight || 0;
                 const weightB = b.weight || 0;
-
                 if (weightB !== weightA) {
-                    return weightB - weightA; // weight の降順
+                    return weightB - weightA;
                 }
-                // weight が同じ場合は、元の順序を維持するため 0 を返す
-                // (JavaScriptのsortはES2019以降で安定ソートが保証されています)
                 return 0;
             });
 
             const totalWeight = sortedImagesData.reduce((sum, img) => sum + (img.weight || 0), 0);
 
             if (totalWeight <= 0) {
-                rarityListElement.innerHTML = '<p>出現率を計算できませんでした。</p>';
+                rarityTableContainer.innerHTML = '<p>出現率を計算できませんでした。</p>';
                 return;
             }
 
-            const ul = document.createElement('ul');
-            ul.className = 'rarity-items';
+            const table = document.createElement('table');
+            table.className = 'rarity-table';
 
-            sortedImagesData.forEach(image => { // ソート済みの配列を使用
+            // テーブルヘッダーを作成
+            const thead = document.createElement('thead');
+            const headerRow = document.createElement('tr');
+            const thDescription = document.createElement('th');
+            thDescription.textContent = '説明';
+            const thPercentage = document.createElement('th');
+            thPercentage.textContent = '出現率';
+            headerRow.appendChild(thDescription);
+            headerRow.appendChild(thPercentage);
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
+
+            // テーブルボディを作成
+            const tbody = document.createElement('tbody');
+            sortedImagesData.forEach(image => {
                 const percentage = ((image.weight || 0) / totalWeight) * 100;
-                const listItem = document.createElement('li');
-                listItem.className = 'rarity-item';
+                const row = document.createElement('tr');
 
-                const imgElement = document.createElement('img');
-                imgElement.src = image.src;
-                imgElement.alt = image.description;
-                imgElement.className = 'rarity-image';
+                const tdDescription = document.createElement('td');
+                tdDescription.textContent = image.description;
+                tdDescription.className = 'rarity-description-cell';
 
-                const descriptionElement = document.createElement('p');
-                descriptionElement.className = 'rarity-description';
-                descriptionElement.textContent = image.description;
+                const tdPercentage = document.createElement('td');
+                tdPercentage.textContent = `${percentage.toFixed(2)}%`;
+                tdPercentage.className = 'rarity-percentage-cell';
 
-                const percentageElement = document.createElement('p');
-                percentageElement.className = 'rarity-percentage';
-                percentageElement.textContent = `出現率: ${percentage.toFixed(2)}%`; // 小数点以下2桁で表示
-
-                listItem.appendChild(imgElement);
-                listItem.appendChild(descriptionElement);
-                listItem.appendChild(percentageElement);
-                ul.appendChild(listItem);
+                row.appendChild(tdDescription);
+                row.appendChild(tdPercentage);
+                tbody.appendChild(row);
             });
-            rarityListElement.appendChild(ul);
+            table.appendChild(tbody);
+
+            rarityTableContainer.appendChild(table);
         });
     </script>
 </body>
