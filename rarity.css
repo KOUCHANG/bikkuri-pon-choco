@@ -44,15 +44,16 @@ h1 {
 
 .rarity-table th,
 .rarity-table td {
-    border: 1px solid #dee2e6; /* セルの境界線 */
-    padding: 10px 12px; /* セル内のパディング */
-    text-align: left; /* テキストを左揃えに */
+    border: 1px solid #dee2e6;
+    padding: 10px 12px;
+    text-align: left; /* デフォルトは左寄せ */
 }
 
 .rarity-table th {
-    background-color: #e9ecef; /* ヘッダーの背景色 */
+    background-color: #e9ecef;
     font-weight: bold;
     color: #495057;
+    /* text-align: left; は上記の .rarity-table th, td で指定済みなので不要なら削除可 */
 }
 
 .rarity-table tbody tr:nth-child(odd) {
@@ -64,11 +65,11 @@ h1 {
 }
 
 .rarity-description-cell {
-    /* 説明セルのスタイル（必要に応じて） */
+    text-align: left; /* 明示的に左寄せを指定 */
 }
 
 .rarity-percentage-cell {
-    text-align: right; /* パーセンテージを右揃えに */
+    text-align: right; /* 既に右寄せになっているはずですが、確認のため記載 */
     font-weight: 500;
     color: #28a745;
     min-width: 80px; /* パーセンテージ列の最小幅 */
