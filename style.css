@@ -33,12 +33,17 @@ p { /* 「今日のシールは・・・？」のスタイル */
     letter-spacing: 0.05em; /* 文字間隔を少し広げる */
 }
 
-#image-count-display { /* 「（全x種類）」のスタイル */
-    font-size: 0.95em; /* 少し調整 */
+#image-count-display { /* 「（全x種類）」のスタイル - リンクになってもスタイルを維持 */
+    font-size: 0.95em;
     color: #7f8c8d;   /* 落ち着いたグレー */
-    font-style: italic; /* イタリック体 */
+    font-style: italic;
     margin-top: 0;
-    margin-bottom: 12px; /* ボタンとの間隔を少し広げる */
+    margin-bottom: 12px;
+    text-decoration: none; /* リンクの下線を消す場合 */
+}
+#image-count-display:hover {
+    text-decoration: underline; /* ホバー時に下線を表示する場合 */
+    color: #5a6268; /* ホバー時の色を少し濃くする場合 */
 }
 
 #action-button {

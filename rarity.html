@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ビックリポンチョコ - シール出現率</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="rarity.css">
+</head>
+<body>
+    <div class="container">
+        <h1>シールの出現率一覧</h1>
+        <p><a href="index.html" class="back-link">&laquo; ビックリポンチョコに戻る</a></p>
+        <div id="rarity-list">
+            <!-- ここにJavaScriptでリストが生成されます -->
+        </div>
+    </div>
+    <script src="image-data.js"></script>
+    <script>
+        // 🖼️ 画像データは image-data.js から allImagesData を参照
+        const imagesData = allImagesData;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const rarityListElement = document.getElementById('rarity-list');
+            if (!rarityListElement) return;
+
+            // imagesDataをソートする
+            // 1. weight の降順 (高いものが先頭)
+            // 2. weight が同じ場合は、元の配列の順序を維持する (安定ソートの挙動に依存)
+            const sortedImagesData = [...imagesData].sort((a, b) => {
+                const weightA = a.weight || 0;
+                const weightB = b.weight || 0;
+
+                if (weightB !== weightA) {
+                    return weightB - weightA; // weight の降順
+                }
+                // weight が同じ場合は、元の順序を維持するため 0 を返す
+                // (JavaScriptのsortはES2019以降で安定ソートが保証されています)
+                return 0;
+            });
+
+            const totalWeight = sortedImagesData.reduce((sum, img) => sum + (img.weight || 0), 0);
+
+            if (totalWeight <= 0) {
+                rarityListElement.innerHTML = '<p>出現率を計算できませんでした。</p>';
+                return;
+            }
+
+            const ul = document.createElement('ul');
+            ul.className = 'rarity-items';
+
+            sortedImagesData.forEach(image => { // ソート済みの配列を使用
+                const percentage = ((image.weight || 0) / totalWeight) * 100;
+                const listItem = document.createElement('li');
+                listItem.className = 'rarity-item';
+
+                const imgElement = document.createElement('img');
+                imgElement.src = image.src;
+                imgElement.alt = image.description;
+                imgElement.className = 'rarity-image';
+
+                const descriptionElement = document.createElement('p');
+                descriptionElement.className = 'rarity-description';
+                descriptionElement.textContent = image.description;
+
+                const percentageElement = document.createElement('p');
+                percentageElement.className = 'rarity-percentage';
+                percentageElement.textContent = `出現率: ${percentage.toFixed(2)}%`; // 小数点以下2桁で表示
+
+                listItem.appendChild(imgElement);
+                listItem.appendChild(descriptionElement);
+                listItem.appendChild(percentageElement);
+                ul.appendChild(listItem);
+            });
+            rarityListElement.appendChild(ul);
+        });
+    </script>
+</body>
+</html>

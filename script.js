@@ -2,49 +2,10 @@
 window.onload = function() {
     const randomImage = document.getElementById('random-image');
     const actionButton = document.getElementById('action-button');
-    const imageCountDisplay = document.getElementById('image-count-display'); // ← 追加
+    const imageCountDisplay = document.getElementById('image-count-display');
 
-    // 🖼️ 画像のパスと重みを設定
-    const images = [
-        { src: 'images/pon.png',               weight: 12 },
-        { src: 'images/kinako.png',            weight: 12 },
-        { src: 'images/misa.png',              weight: 12 },
-        { src: 'images/naruse.png',            weight: 12 },
-
-        { src: 'images/kinako_gyaru.png',      weight: 6  },
-        { src: 'images/misa_bigan.png',        weight: 6  },
-        { src: 'images/naruse_koakuma.png',    weight: 6  },
-
-        { src: 'images/pon_daibutsu.png',      weight: 6  },
-
-        { src: 'images/hiyoko.png',            weight: 18 },
-        { src: 'images/hiyoko_shinshi.png',    weight: 9  },
-
-        { src: 'images/kou.png',               weight: 27 },
-        { src: 'images/nahe.png',              weight: 27 },
-
-        { src: 'images/hasecchi.png',          weight: 24 },
-        { src: 'images/hasecchi_rare.png',     weight: 3  },
-
-        { src: 'images/osta.png',              weight: 9  },
-        { src: 'images/totoro.png',            weight: 9  },
-        { src: 'images/tibiarichan.png',       weight: 9  },
-
-        { src: 'images/poni.png',              weight: 9  },
-        { src: 'images/poni_wanyudo.png',      weight: 6  }, 
-
-        { src: 'images/ripa.png',              weight: 5  },
-        { src: 'images/ripa_uchujin.png',      weight: 4  },
-
-        { src: 'images/bravo.png',             weight: 8  },
-        { src: 'images/bravo_ban.png',         weight: 1  },
-
-        { src: 'images/seseri_normal.png',     weight: 5  },
-        { src: 'images/seseri_rare.png',       weight: 3  },
-        { src: 'images/seseri_ultra_rare.png', weight: 1  },
-        { src: 'images/seseri_birthday.png',   weight: 1  },
-
-    ];
+    // 🖼️ 画像データは image-data.js から allImagesData を参照
+    const images = allImagesData; // ← 変更
 
     // ✨ パッケージ画像のパスを指定
     const packageImage = 'images/package.png';

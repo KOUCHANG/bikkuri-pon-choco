@@ -1,0 +1,94 @@
+body {
+    background-color: #f8f9fa; /* rarityページの背景色 */
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0; /* bodyのpaddingはリセット */
+}
+
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+h1 {
+    color: #343a40;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+}
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.rarity-items {
+    list-style-type: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* レスポンシブなグリッドレイアウト */
+    gap: 20px;
+}
+
+.rarity-item {
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    padding: 15px;
+    text-align: center;
+    background-color: #fff;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.rarity-item:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.rarity-image {
+    max-width: 100px; /* 画像サイズを調整 */
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #dee2e6;
+}
+
+.rarity-description {
+    font-size: 0.95em;
+    color: #495057;
+    margin-bottom: 8px;
+    min-height: 40px; /* 説明文の表示高さをある程度確保 */
+}
+
+.rarity-percentage {
+    font-size: 1em;
+    font-weight: bold;
+    color: #28a745; /* パーセンテージの色 */
+}
+
+@media (max-width: 600px) {
+    .container {
+        margin: 10px;
+        padding: 15px;
+    }
+    h1 {
+        font-size: 1.6em;
+    }
+    .rarity-items {
+        grid-template-columns: 1fr; /* スマホでは1カラム */
+    }
+    .rarity-image {
+        max-width: 80px;
+    }
+}
