@@ -7,15 +7,15 @@ window.onload = function() {
     // 🖼️ 画像のパスと重みを設定
     const images = [
         { src: 'images/pon.png',               weight: 12  },
-        { src: 'images/kinako.png',            weight: 18  },
-        { src: 'images/misa.png',              weight: 18  },
+        { src: 'images/kinako.png',            weight: 12  },
+        { src: 'images/misa.png',              weight: 12  },
         { src: 'images/naruse.png',            weight: 12  },
 
         { src: 'images/naruse_koakuma.png',    weight: 6   },
 
         { src: 'images/pon_daibutsu.png',      weight: 6   },
 
-        { src: 'images/hiyoko.png',            weight: 27  },
+        { src: 'images/hiyoko.png',            weight: 18  },
 
         { src: 'images/kou.png',               weight: 27  },
         { src: 'images/nahe.png',              weight: 27  },
@@ -38,6 +38,11 @@ window.onload = function() {
         { src: 'images/seseri_rare.png',       weight: 3   },
         { src: 'images/seseri_ultra_rare.png', weight: 1   },
         { src: 'images/seseri_birthday.png',   weight: 1   },
+
+        { src: 'images/10D39FDB-102C-429B-A1C2-336BA9DBB422.png',   weight: 6   }, // ぽに
+        { src: 'images/5C751B02-1672-4803-B285-38B7DE40C85D.png',   weight: 9   }, // にわとり
+        { src: 'images/D7174032-B90C-489E-8F65-30B13FD96AD9.png',   weight: 6   }, // みさ
+        { src: 'images/F90317CD-53FE-459A-A543-963C939AFF27.png',   weight: 6   }, // きなこ
     ];
 
     // ✨ パッケージ画像のパスを指定
