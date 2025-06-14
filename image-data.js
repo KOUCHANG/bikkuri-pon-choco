@@ -13,10 +13,10 @@ const allImagesData = [
     { src: 'images/hiyoko.png',            weight: 18, description: '4人の奴隷ひよこ' },
     { src: 'images/hiyoko_shinshi.png',    weight: 9,  description: '紳士にわとり'  },
 
-    { src: 'images/kou.png',               weight: 27, description: '平凡な犬こう' },
-    { src: 'images/nahe.png',              weight: 27, description: 'なーへー' },
+    { src: 'images/kou.png',               weight: 18, description: '平凡な犬こう' },
+    { src: 'images/nahe.png',              weight: 18, description: 'なーへー' },
 
-    { src: 'images/hasecchi.png',          weight: 24, description: 'はせっち' },
+    { src: 'images/hasecchi.png',          weight: 18, description: 'はせっち' },
     { src: 'images/hasecchi_rare.png',     weight: 3,  description: 'ちょっとレアなはせっち'  },
 
     { src: 'images/osta.png',              weight: 9,  description: 'Startend(&???)'  },
