@@ -5,10 +5,12 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
+    height: auto; /* スクロール可能にするために高さを自動に */
+    overflow: auto; /* スクロールバーを必要に応じて表示 */
 }
 
 .container {
-    max-width: 800px; /* テーブルに合わせて幅を調整 */
+    max-width: 800px;
     margin: 20px auto;
     padding: 20px;
     background-color: #ffffff;
@@ -35,10 +37,9 @@ h1 {
     text-decoration: underline;
 }
 
-/* --- テーブル用のスタイル --- */
 .rarity-table {
     width: 100%;
-    border-collapse: collapse; /* 隣接するセルの境界線を結合 */
+    border-collapse: collapse;
     margin-top: 15px;
 }
 
@@ -46,35 +47,34 @@ h1 {
 .rarity-table td {
     border: 1px solid #dee2e6;
     padding: 10px 12px;
-    text-align: left; /* デフォルトは左寄せ */
+    /* データセルのデフォルト寄せはここで指定しないか、必要なら左寄せに */
 }
 
 .rarity-table th {
     background-color: #e9ecef;
     font-weight: bold;
     color: #495057;
-    /* text-align: left; は上記の .rarity-table th, td で指定済みなので不要なら削除可 */
+    text-align: center; /* タイトル行のテキストを中央寄せに */
 }
 
 .rarity-table tbody tr:nth-child(odd) {
-    background-color: #f8f9fa; /* 奇数行の背景色（ストライプ） */
+    background-color: #f8f9fa;
 }
 
 .rarity-table tbody tr:hover {
-    background-color: #e2e6ea; /* ホバー時の背景色 */
+    background-color: #e2e6ea;
 }
 
 .rarity-description-cell {
-    text-align: left; /* 明示的に左寄せを指定 */
+    text-align: left; /* 説明セルのテキストを左寄せに */
 }
 
 .rarity-percentage-cell {
-    text-align: right; /* 既に右寄せになっているはずですが、確認のため記載 */
+    text-align: right; /* 当たり率セルのテキストを右寄せに */
     font-weight: 500;
     color: #28a745;
-    min-width: 80px; /* パーセンテージ列の最小幅 */
+    min-width: 80px;
 }
-/* --- ここまでテーブル用のスタイル --- */
 
 @media (max-width: 600px) {
     .container {
@@ -87,7 +87,7 @@ h1 {
     .rarity-table th,
     .rarity-table td {
         padding: 8px 10px;
-        font-size: 0.9em; /* スマホではフォントを少し小さく */
+        font-size: 0.9em;
     }
     .rarity-percentage-cell {
         min-width: 70px;
