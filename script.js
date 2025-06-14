@@ -18,7 +18,7 @@ window.onload = function() {
         { src: 'images/pon_daibutsu.png',      weight: 6  },
 
         { src: 'images/hiyoko.png',            weight: 18 },
-        { src: 'images/hiyoko_shinshi.png',    weight:  9  },
+        { src: 'images/hiyoko_shinshi.png',    weight: 9  },
 
         { src: 'images/kou.png',               weight: 27 },
         { src: 'images/nahe.png',              weight: 27 },
