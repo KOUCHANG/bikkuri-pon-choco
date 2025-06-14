@@ -33,7 +33,20 @@
                 return 0;
             });
 
-            const totalWeight = sortedImagesData.reduce((sum, img) => sum + (img.weight || 0), 0);
+            // 順位を計算してデータに追加
+            let rank = 0;
+            let lastWeight = Infinity; // 前のアイテムのweightを保持 (最初は最大値より大きい値)
+            const rankedImagesData = sortedImagesData.map((image, index) => {
+                const currentWeight = image.weight || 0;
+                if (currentWeight < lastWeight) {
+                    rank = index + 1; // weightが変わったら、現在のインデックス+1を順位とする
+                }
+                // weightが同じ場合は、前のアイテムと同じrankが使われる
+                lastWeight = currentWeight;
+                return { ...image, displayRank: rank };
+            });
+
+            const totalWeight = rankedImagesData.reduce((sum, img) => sum + (img.weight || 0), 0);
 
             if (totalWeight <= 0) {
                 rarityTableContainer.innerHTML = '<p>出現率を計算できませんでした。</p>';
@@ -46,10 +59,13 @@
             // テーブルヘッダーを作成
             const thead = document.createElement('thead');
             const headerRow = document.createElement('tr');
+            const thRank = document.createElement('th'); // 順位ヘッダー
+            thRank.textContent = '順位';
             const thDescription = document.createElement('th');
-            thDescription.textContent = 'シール';
+            thDescription.textContent = '説明';
             const thPercentage = document.createElement('th');
-            thPercentage.textContent = '当たり率';
+            thPercentage.textContent = '出現率';
+            headerRow.appendChild(thRank); // 順位ヘッダーを追加
             headerRow.appendChild(thDescription);
             headerRow.appendChild(thPercentage);
             thead.appendChild(headerRow);
@@ -57,9 +73,13 @@
 
             // テーブルボディを作成
             const tbody = document.createElement('tbody');
-            sortedImagesData.forEach(image => {
+            rankedImagesData.forEach(image => { // 順位情報が含まれたデータを使用
                 const percentage = ((image.weight || 0) / totalWeight) * 100;
                 const row = document.createElement('tr');
+
+                const tdRank = document.createElement('td'); // 順位セル
+                tdRank.textContent = image.displayRank;
+                tdRank.className = 'rarity-rank-cell';
 
                 const tdDescription = document.createElement('td');
                 tdDescription.textContent = image.description;
@@ -69,6 +89,7 @@
                 tdPercentage.textContent = `${percentage.toFixed(2)}%`;
                 tdPercentage.className = 'rarity-percentage-cell';
 
+                row.appendChild(tdRank); // 順位セルを追加
                 row.appendChild(tdDescription);
                 row.appendChild(tdPercentage);
                 tbody.appendChild(row);

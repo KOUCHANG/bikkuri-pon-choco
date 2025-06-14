@@ -5,8 +5,8 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    height: auto; /* スクロール可能にするために高さを自動に */
-    overflow: auto; /* スクロールバーを必要に応じて表示 */
+    height: auto;
+    overflow: auto;
 }
 
 .container {
@@ -47,14 +47,13 @@ h1 {
 .rarity-table td {
     border: 1px solid #dee2e6;
     padding: 10px 12px;
-    /* データセルのデフォルト寄せはここで指定しないか、必要なら左寄せに */
 }
 
 .rarity-table th {
     background-color: #e9ecef;
     font-weight: bold;
     color: #495057;
-    text-align: center; /* タイトル行のテキストを中央寄せに */
+    text-align: center;
 }
 
 .rarity-table tbody tr:nth-child(odd) {
@@ -65,12 +64,18 @@ h1 {
     background-color: #e2e6ea;
 }
 
+.rarity-rank-cell { /* 順位セルのスタイル */
+    text-align: center; /* 順位を中央寄せに */
+    font-weight: 500;
+    min-width: 50px; /* 順位列の最小幅 */
+}
+
 .rarity-description-cell {
-    text-align: left; /* 説明セルのテキストを左寄せに */
+    text-align: left;
 }
 
 .rarity-percentage-cell {
-    text-align: right; /* 当たり率セルのテキストを右寄せに */
+    text-align: right;
     font-weight: 500;
     color: #28a745;
     min-width: 80px;
@@ -88,6 +93,9 @@ h1 {
     .rarity-table td {
         padding: 8px 10px;
         font-size: 0.9em;
+    }
+    .rarity-rank-cell {
+        min-width: 40px;
     }
     .rarity-percentage-cell {
         min-width: 70px;
