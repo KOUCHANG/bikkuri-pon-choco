@@ -4,7 +4,7 @@ const allImagesData = [
     { src: 'images/misa.png',              weight: 12, description: '雷神みさ' },
     { src: 'images/naruse.png',            weight: 12, description: '穴なるせ' },
 
-    { src: 'images/kinako_gyaru.png',      weight: 2,  description: 'きなこ（レアバージョン）1 },
+    { src: 'images/kinako_gyaru.png',      weight: 2,  description: 'きなこ（レアバージョン）1' },
     { src: 'images/kinako_mama.png',       weight: 4,  description: 'きなこ（レアバージョン）2' },
 
     { src: 'images/misa_bigan.png',        weight: 6,  description: 'みさ（レアバージョン）' },
